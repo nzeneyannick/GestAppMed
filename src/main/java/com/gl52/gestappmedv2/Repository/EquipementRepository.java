@@ -7,11 +7,16 @@ import java.util.UUID;
 
 public interface EquipementRepository extends CrudRepository<Equipement, Long> {
 
-    public List<Equipement>findAll();
-    public List<Equipement>findByNameContainsOrderByName(String name);
-    public List<Equipement>findEquipementsByLastKnowsLocationContainingOrderByLastKnowsLocation(String lastlocation);
-    public  void deleteEquipementByUuidEquals(UUID uuid);
-    public void deleteEquipementByNameEquals(String name);
+    public List<Equipement> findAll();
+    //public Equipement findById();
+    //public Equipement findEquipementsById();
+    public List<Equipement>findByLastKnowsLocationOrderByName(String name);
+    public List<Equipement>findByNameContainsOrderByLastKnowsLocation(String lastlocation);
+    public  void deleteById(Long id);
+    public Equipement save(Equipement e);
+
+
+
 
 
 }

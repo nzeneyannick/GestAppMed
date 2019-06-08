@@ -6,21 +6,24 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-public class Equipement {
+
+public class Equipement implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private UUID uuid;
+    //private UUID uuid;
     private String name;
     private String lastKnowsLocation;
     @ManyToOne
     private Type type;
+
+
 
 }
 

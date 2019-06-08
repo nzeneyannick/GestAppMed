@@ -7,6 +7,11 @@ import java.util.List;
 
 public interface TypeRepository extends CrudRepository<Type, Long> {
 
-    public List<Type>findAll();
-    public List<Type> findByNameContainsOrderByName(String name);
+   // public List<Type> findAll();
+   public List<Type> findAll();
+    public Type findTypeByName(String name);
+
+    public  void deleteById(Long id);
+    public Type save(Type type);
+
 }
