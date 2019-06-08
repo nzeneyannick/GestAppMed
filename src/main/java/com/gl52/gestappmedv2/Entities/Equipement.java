@@ -24,6 +24,8 @@ public class Equipement implements Serializable {
     private Boolean StatusPret;
     @ManyToOne
     private Type type;
+    @ManyToOne
+    private PeriodeDeMaintenance periodeDeMaintenance;
 
 
 }
