@@ -20,6 +20,8 @@ public class Equipement implements Serializable {
     private Long id;
     private String name;
     private String lastKnowsLocation;
+    private Boolean StatusMaintenance;
+    private Boolean StatusPret;
     @ManyToOne
     private Type type;
 
