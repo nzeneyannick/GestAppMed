@@ -15,14 +15,13 @@ import java.util.UUID;
 @AllArgsConstructor
 
 public class Equipement implements Serializable {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    //private UUID uuid;
     private String name;
     private String lastKnowsLocation;
     @ManyToOne
     private Type type;
-
 
 
 }

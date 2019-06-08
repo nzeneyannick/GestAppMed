@@ -1,14 +1,12 @@
 package com.gl52.gestappmedv2.Service;
 
-
-import com.gl52.gestappmedv2.Entities.Equipement;
 import com.gl52.gestappmedv2.Entities.Type;
 import com.gl52.gestappmedv2.Repository.TypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -20,6 +18,10 @@ public class TypeService {
 
     public List<Type> getAllType() {
         return (List<Type>) typeRepository.findAll();
+    }
+
+    public Type getById(Long id) {
+        return typeRepository.findById(id).get();
     }
 
     public Type getTypeByName(String name) {

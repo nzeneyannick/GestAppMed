@@ -14,19 +14,12 @@ import java.util.Collection;
 @AllArgsConstructor
 @Entity
 public class Type implements Serializable {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     //Un type comporte plusieurs equipements
     @OneToMany(mappedBy = "type")
     private Collection<Equipement> equipements;
-    /*
-    public String toString() {
-        System.out.println("Type =>" + "Id :"+  getName() +"Name :"+getName());
-        for (Equipement e:equipements){
-            e.toString();
-        }
-    }*/
-
 
 }

@@ -13,27 +13,32 @@ import java.util.List;
 @RequestMapping(value = "/api")
 public class TypeController {
 
-   @Autowired
+    @Autowired
     private TypeService typeService;
 
-   @PostMapping("/saveType")
-   public Type save(@RequestBody Type type){
-       return typeService.saveOrUpdate(type);
-   }
+    @PostMapping("/saveType")
+    public Type save(@RequestBody Type type) {
+        return typeService.saveOrUpdate(type);
+    }
+
+    @GetMapping("/type/{id}")
+    public Type getTypeById(@PathVariable("id") Long id) {
+        return typeService.getById(id);
+    }
 
     @GetMapping("/types")
-    public List<Type> afficheListType(){
+    public List<Type> afficheListType() {
         return typeService.getAllType();
     }
 
     @GetMapping("/types/{nom}")
-    public Type afficherParNom(@PathVariable("nom")String nom){
+    public Type afficherParNom(@PathVariable("nom") String nom) {
         return typeService.getTypeByName(nom);
     }
 
     @DeleteMapping("/deleteType/{id}")
-    public void deleteType(@PathVariable Long id ) {
-       typeService.deleteType(id);
+    public void deleteType(@PathVariable Long id) {
+        typeService.deleteType(id);
     }
 
 }

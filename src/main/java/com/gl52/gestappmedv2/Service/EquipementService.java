@@ -13,23 +13,24 @@ import java.util.UUID;
 
 @Service
 @Transactional
-public  class EquipementService  {
+public class EquipementService {
 
     @Autowired
     private EquipementRepository equipementRepository;
 
-    public List<Equipement>  getAllEquipments(){
-        return (List<Equipement>)equipementRepository.findAll() ;
+    public List<Equipement> getAllEquipments() {
+        return (List<Equipement>) equipementRepository.findAll();
     }
 
-   // public Equipement getEquipmentById(Long id){
-        //return equipementRepository.findById(id).get();
-    //    return equipementRepository.findEquipementsById();
-  //  }
+    public Equipement getEquipementById(Long id) {
+        return equipementRepository.findById(id).get();
+    }
+
 
     public List<Equipement> getEquipementByName(String name) {
-        return (List<Equipement>)equipementRepository.findByNameContainsOrderByLastKnowsLocation(name);
+        return (List<Equipement>) equipementRepository.findByNameContainsOrderByLastKnowsLocation(name);
     }
+
     public List<Equipement> getEquipmentByLastLocation(String lastlocation) {
         return (List<Equipement>) equipementRepository.findByLastKnowsLocationOrderByName(lastlocation);
     }
@@ -40,7 +41,7 @@ public  class EquipementService  {
 
     public String deleteEquipment(Long id) {
         equipementRepository.deleteById(id);
-        return "Deleted successfully id ="+ id;
+        return "Deleted successfully id =" + id;
     }
 
 }

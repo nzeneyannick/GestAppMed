@@ -16,32 +16,32 @@ public class EquipementController {
     @Autowired
     private EquipementService equipementService;
 
-    @PostMapping("/save")
+    @PostMapping("/equipments")
     public Equipement save(@RequestBody Equipement equipement){
         return equipementService.saveOrUpdate(equipement);
     }
 
-    @GetMapping("/listEquipements")
-  public List<Equipement> listEquipement(){
+    @GetMapping("/equipments")
+  public List<Equipement> getAllEquipments(){
         return  equipementService.getAllEquipments();
     }
 
-    //@GetMapping("/equipements{id}")
-   // public Equipement getById(@PathVariable("id") Long id){
-      //  return equipementService.getEquipmentById(id);
-    //}
+    @GetMapping("/equipments{id}")
+    public Equipement getEquipmentById(@PathVariable("id") Long id){
+       return equipementService.getEquipementById(id);
+    }
 
-    @GetMapping("/equipements{nom}")
-    public List<Equipement>afficherParNom(@PathVariable("nom")String nom){
+    @GetMapping("/equipments{nom}")
+    public List<Equipement>getEquipmentsByName(@PathVariable("nom")String nom){
         return equipementService.getEquipementByName(nom);
     }
 
     @GetMapping("/equipements/{lastlocation}")
-    public List<Equipement>afficherParLocalisation(@PathVariable("lastlocation")String lastlocation){
+    public List<Equipement>getEquipmentByLocation(@PathVariable("lastlocation")String lastlocation){
         return equipementService.getEquipmentByLastLocation(lastlocation);
     }
 
-    @DeleteMapping(value ="/equipements/deleteid{id}")
+    @DeleteMapping(value ="/equipments{id}")
     public void deleteEquipement(@PathVariable("id") Long id) {
         equipementService.deleteEquipment(id);
     }
