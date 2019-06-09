@@ -35,6 +35,21 @@ public class EquipementService {
         return (List<Equipement>) equipementRepository.findByLastKnowsLocationOrderByName(lastlocation);
     }
 
+    public List<Equipement> getEquipmentByEnMaintenanceIsTrue() {
+        return equipementRepository.findByEnMaintenanceIsTrue();
+    }
+
+    public List<Equipement> getEquipmentByEnMaintenanceIsFalse() {
+        return equipementRepository.findByEnMaintenanceIsFalse();
+    }
+
+    public List<Equipement> getEquipmentByEnPretIsTrue() {
+        return equipementRepository.findByEnPretIsTrue();
+    }
+    public List<Equipement> getEquipmentByEnPretIsFalse() {
+        return equipementRepository.findByEnPretIsFalse();
+    }
+
     public Equipement saveOrUpdate(Equipement equipment) {
         return equipementRepository.save(equipment);
     }
