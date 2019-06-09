@@ -21,6 +21,7 @@ public class PeriodeDeMaintenance implements Serializable {
     private Date date;
     private Enum etatDeDebut;
     private Enum etatDeFin;
+    private String nomTechnicien;
 
     @OneToMany(mappedBy = "periodeDeMaintenance")
     private Collection<Equipement> equipements;

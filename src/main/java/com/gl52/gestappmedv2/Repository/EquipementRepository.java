@@ -1,7 +1,6 @@
 package com.gl52.gestappmedv2.Repository;
 
 import com.gl52.gestappmedv2.Entities.Equipement;
-import jdk.nashorn.internal.runtime.options.Option;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
