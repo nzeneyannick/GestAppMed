@@ -17,9 +17,12 @@ public class Pret implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private Date debut;
     private Date fin;
-    private EtatDebut etatDebut;
-    private EtatFin etatFin;
+    @Column(name="Etat_De_Debut" ,columnDefinition = "enum('OK','CRITIQUE','ALERTE','INCONNU','INDETERMINE')")
+    private String etatDebut;
+    @Column(name="Etat_De_Fin" ,columnDefinition = "enum('OK','CRITIQUE','ALERTE','INCONNU','INDETERMINE')")
+    private String etatFin;
     @OneToMany(mappedBy = "pret")
     private Collection<Equipement> equipements;
 

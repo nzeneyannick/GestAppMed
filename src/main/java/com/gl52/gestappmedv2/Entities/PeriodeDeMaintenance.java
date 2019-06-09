@@ -19,8 +19,10 @@ public class PeriodeDeMaintenance implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date date;
-    private Enum etatDeDebut;
-    private Enum etatDeFin;
+    @Column(name = "Etat_De_Debut", columnDefinition = "enum('OK','CRITIQUE','ALERTE','INCONNU','INDETERMINE')")
+    private String etatDeDebut;
+    @Column(name = "Etat_De_Fin", columnDefinition = "enum('OK','CRITIQUE','ALERTE','INCONNU','INDETERMINE')")
+    private String etatDeFin;
     private String nomTechnicien;
 
     @OneToMany(mappedBy = "periodeDeMaintenance")
