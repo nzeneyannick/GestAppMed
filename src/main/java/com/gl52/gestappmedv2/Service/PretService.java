@@ -14,18 +14,19 @@ public class PretService {
     @Autowired
     PretRepository pretRepository;
 
-    public List<Pret> getAllPret(){
+    public List<Pret> getAllPret() {
         return pretRepository.findAll();
     }
-    public Pret getPret(Long id){
+
+    public Pret getPret(Long id) {
         return pretRepository.findById(id).get();
     }
 
-    public Long savePret(Pret pret){
+    public Long savePret(Pret pret) {
         return pretRepository.save(pret).getId();
     }
-    public String deletePret(Long id){
+
+    public void deletePret(Long id) {
         pretRepository.deleteById(id);
-        return "Deleted successfully id =" + id;
     }
 }

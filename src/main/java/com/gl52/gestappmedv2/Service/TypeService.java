@@ -32,9 +32,8 @@ public class TypeService {
         return typeRepository.save(type).getId();
     }
 
-    public String deleteType(Long id) {
+    public void deleteType(Long id) {
         typeRepository.deleteById(id);
-        return "Deleted successfully id =" + id;
 
     }
 

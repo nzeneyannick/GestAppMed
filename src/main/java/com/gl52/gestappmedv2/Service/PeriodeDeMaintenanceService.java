@@ -27,8 +27,7 @@ public class PeriodeDeMaintenanceService {
         return periodeDeMaintenanceRepository.save(periodeDeMaintenance).getId();
     }
 
-    public String deletePeriodeDeMaintenance(Long id) {
+    public void deletePeriodeDeMaintenance(Long id) {
         periodeDeMaintenanceRepository.deleteById(id);
-        return "Deleted successfully id =" + id;
     }
 }

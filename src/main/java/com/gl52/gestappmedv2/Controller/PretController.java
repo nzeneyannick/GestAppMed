@@ -28,8 +28,8 @@ public class PretController {
         return pretService.getPret(id);
     }
     @DeleteMapping("/removeLoan/{id}")
-    public String deleteLoan(Long id){
-        return pretService.deletePret(id);
+    public void deleteLoan(Long id){
+        pretService.deletePret(id);
     }
 
 }

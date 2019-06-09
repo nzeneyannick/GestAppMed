@@ -31,8 +31,8 @@ public class PeriodeDeMaintenanceController {
     }
 
     @DeleteMapping("/removemaintance/{id}")
-    public String deletePeriodeMaintenance(Long id){
-       return  periodeDeMaintenanceService.deletePeriodeDeMaintenance(id);
+    public void deletePeriodeMaintenance(Long id){
+        periodeDeMaintenanceService.deletePeriodeDeMaintenance(id);
     }
 
 }
