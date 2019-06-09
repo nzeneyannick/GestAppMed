@@ -28,8 +28,8 @@ public class TypeService {
         return typeRepository.findTypeByName(name);
     }
 
-    public Type saveOrUpdate(Type type) {
-        return typeRepository.save(type);
+    public Long saveOrUpdate(Type type) {
+        return typeRepository.save(type).getId();
     }
 
     public String deleteType(Long id) {

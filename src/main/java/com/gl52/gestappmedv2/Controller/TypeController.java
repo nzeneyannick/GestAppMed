@@ -17,7 +17,7 @@ public class TypeController {
     private TypeService typeService;
 
     @PostMapping("/saveType")
-    public Type save(@RequestBody Type type) {
+    public Long save(@RequestBody Type type) {
         return typeService.saveOrUpdate(type);
     }
 
