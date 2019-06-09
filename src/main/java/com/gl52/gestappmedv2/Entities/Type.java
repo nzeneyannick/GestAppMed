@@ -1,25 +1,38 @@
 package com.gl52.gestappmedv2.Entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Collection;
+
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+
+@EqualsAndHashCode(exclude = "equipements")
 @Entity
-public class Type implements Serializable {
+@NoArgsConstructor
+public class Type {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     //Un type comporte plusieurs equipements
-    @OneToMany(mappedBy = "type")
-    private Collection<Equipement> equipements;
+    @OneToMany(mappedBy = "type", cascade = CascadeType.ALL)
+    private Set<Equipement> equipements;
+
+
+    public Type(String name, Equipement... equipements) {
+        this.name = name;
+        this.equipements = Stream.of(equipements).collect(Collectors.toSet());
+        this.equipements.forEach(x -> x.setType(this));
+
+    }
+
+
+
 
 }

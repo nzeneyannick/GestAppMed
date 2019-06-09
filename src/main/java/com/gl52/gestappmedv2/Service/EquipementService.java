@@ -19,7 +19,9 @@ public class EquipementService {
     private EquipementRepository equipementRepository;
 
     public List<Equipement> getAllEquipments() {
-        return (List<Equipement>) equipementRepository.findAll();
+        List<Equipement>equipements = new ArrayList<>();
+        equipementRepository.findAll().forEach(equipements::add);
+        return equipements;
     }
 
     public Equipement getEquipementById(Long id) {
