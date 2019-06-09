@@ -23,8 +23,8 @@ public class PeriodeDeMaintenanceService {
         return periodeDeMaintenanceRepository.findById(id).get();
     }
 
-    public PeriodeDeMaintenance savePeriodeDeMaintance(PeriodeDeMaintenance periodeDeMaintenance) {
-        return periodeDeMaintenanceRepository.save(periodeDeMaintenance);
+    public Long savePeriodeDeMaintance(PeriodeDeMaintenance periodeDeMaintenance) {
+        return periodeDeMaintenanceRepository.save(periodeDeMaintenance).getId();
     }
 
     public String deletePeriodeDeMaintenance(Long id) {

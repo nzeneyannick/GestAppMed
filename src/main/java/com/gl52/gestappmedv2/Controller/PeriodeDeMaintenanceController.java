@@ -16,7 +16,7 @@ public class PeriodeDeMaintenanceController {
     PeriodeDeMaintenanceService periodeDeMaintenanceService;
 
     @PostMapping("/addmaintenance")
-    public PeriodeDeMaintenance addMaintenace(@RequestBody PeriodeDeMaintenance periodeDeMaintenance) {
+    public Long addMaintenace(@RequestBody PeriodeDeMaintenance periodeDeMaintenance) {
         return periodeDeMaintenanceService.savePeriodeDeMaintance(periodeDeMaintenance);
     }
 
