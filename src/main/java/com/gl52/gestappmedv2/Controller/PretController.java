@@ -14,7 +14,7 @@ public class PretController {
     private PretService pretService;
 
     @PostMapping("/addLoan")
-    public Pret addLoan(@RequestBody Pret pret) {
+    public Long addLoan(@RequestBody Pret pret) {
         return pretService.savePret(pret);
     }
 

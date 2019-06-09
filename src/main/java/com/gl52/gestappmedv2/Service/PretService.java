@@ -21,8 +21,8 @@ public class PretService {
         return pretRepository.findById(id).get();
     }
 
-    public Pret savePret(Pret pret){
-        return pretRepository.save(pret);
+    public Long savePret(Pret pret){
+        return pretRepository.save(pret).getId();
     }
     public String deletePret(Long id){
         pretRepository.deleteById(id);
