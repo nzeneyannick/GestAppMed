@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 import java.util.Optional;
 
-public interface pretRepository  extends CrudRepository<Pret,Long> {
+public interface PretRepository  extends CrudRepository<Pret,Long> {
     public List<Pret> findAll();
     public Optional<Pret> findById(Long id);
     public Pret save(Pret pret);
