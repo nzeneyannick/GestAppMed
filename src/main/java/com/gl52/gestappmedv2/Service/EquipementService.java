@@ -46,12 +46,13 @@ public class EquipementService {
     public List<Equipement> getEquipmentByEnPretIsTrue() {
         return equipementRepository.findByEnPretIsTrue();
     }
+
     public List<Equipement> getEquipmentByEnPretIsFalse() {
         return equipementRepository.findByEnPretIsFalse();
     }
 
-    public Equipement saveOrUpdate(Equipement equipment) {
-        return equipementRepository.save(equipment);
+    public Long saveOrUpdate(Equipement equipment) {
+        return equipementRepository.save(equipment).getId();
     }
 
     public String deleteEquipment(Long id) {

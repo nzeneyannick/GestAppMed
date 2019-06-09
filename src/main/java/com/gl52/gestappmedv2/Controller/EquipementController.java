@@ -17,7 +17,7 @@ public class EquipementController {
     private EquipementService equipementService;
 
     @PostMapping("/equipments")
-    public Equipement save(@RequestBody Equipement equipement) {
+    public Long save(@RequestBody Equipement equipement) {
         return equipementService.saveOrUpdate(equipement);
     }
 
