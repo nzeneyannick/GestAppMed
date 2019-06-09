@@ -28,6 +28,8 @@ public class Equipement implements Serializable {
     private PeriodeDeMaintenance periodeDeMaintenance;
     @ManyToOne
     private Pret pret;
+    @ManyToOne
+    private Client client;
 
 
 }
