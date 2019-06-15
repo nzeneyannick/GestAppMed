@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @EnableAutoConfiguration
-@RequestMapping(value = "/api")
+@RequestMapping("/api")
 public class EquipementController {
 
     @Autowired
@@ -21,7 +21,7 @@ public class EquipementController {
         return equipementService.saveOrUpdate(equipement);
     }
 
-    @GetMapping("/equipments")
+    @GetMapping(value="/equipments")
     public List<Equipement> getAllEquipments() {
         return equipementService.getAllEquipments();
     }

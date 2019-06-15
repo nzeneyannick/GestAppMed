@@ -3,8 +3,10 @@ package com.gl52.gestappmedv2.Entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 
 
 @Entity
@@ -12,7 +14,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Equipement  {
+public class Equipement implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,29 +22,20 @@ public class Equipement  {
     private String lastKnowsLocation;
     private Boolean enMaintenance;
     private Boolean enPret;
-    @JoinColumn
+
+    //Cardinalité Equipement-Type
     @ManyToOne
     private Type type;
-    @JoinColumn
-    @ManyToOne
-    private PeriodeDeMaintenance periodeDeMaintenance;// = new PeriodeDeMaintenance(null,null,null,null);
-    @JoinColumn
-    @ManyToOne
-    private Pret pret;
-    @JoinColumn
-    @ManyToOne
-    private Client client;
 
-    public Equipement(String name, String lastKnowsLocation, Boolean enMaintenance, Boolean enPret, Type type, PeriodeDeMaintenance periodeDeMaintenance, Pret pret, Client client) {
-        this.name = name;
-        this.lastKnowsLocation = lastKnowsLocation;
-        this.enMaintenance = enMaintenance;
-        this.enPret = enPret;
-        this.type = type;
-        this.periodeDeMaintenance = periodeDeMaintenance;
-        this.pret = pret;
-        this.client = client;
-    }
+    //cardinalité Equipement-Pret
+    @OneToMany(mappedBy = "equipement")
+    Collection<Pret> prets;
+
+    //cardinalité Equipement-Maintenance
+    @OneToMany(mappedBy = "equipement")
+    Collection<Maintenance> maintenances;
+
+
 }
 
 

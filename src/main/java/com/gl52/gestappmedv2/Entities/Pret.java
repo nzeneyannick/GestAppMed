@@ -7,36 +7,28 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Entity
 @Data
 @NoArgsConstructor
-@EqualsAndHashCode(exclude = "equipements")
 
-public class Pret  {
+
+public class Pret implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date debut;
     private Date fin;
-    @Column(name = "Etat_De_Debut", columnDefinition = "enum('OK','CRITIQUE','ALERTE','INCONNU','INDETERMINE')")
+    @Column(name = "Etat_De_Debut", columnDefinition = "enum('UNUSABLE','DEGRADED','GOOD','EXCELLENT')")
     private String etatDebut;
-    @Column(name = "Etat_De_Fin", columnDefinition = "enum('OK','CRITIQUE','ALERTE','INCONNU','INDETERMINE')")
+    @Column(name = "Etat_De_Fin", columnDefinition = "enum('UNUSABLE','DEGRADED','GOOD','EXCELLENT')")
     private String etatFin;
-    @OneToMany(mappedBy = "pret", cascade = CascadeType.ALL)
-    private Collection<Equipement> equipements;
 
-    public Pret(Date debut, Date fin, String etatDebut, String etatFin, Equipement... equipements) {
-        this.debut = debut;
-        this.fin = fin;
-        this.etatDebut = etatDebut;
-        this.etatFin = etatFin;
-        this.equipements = Stream.of(equipements).collect(Collectors.toSet());
-        this.equipements.forEach(x -> x.setPret(this));
-    }
+    @ManyToOne
+    private Equipement equipement;
+    @ManyToOne
+    private Pret pret;
+
 
 }

@@ -1,7 +1,7 @@
 package com.gl52.gestappmedv2.Service;
 
 
-import com.gl52.gestappmedv2.Entities.PeriodeDeMaintenance;
+import com.gl52.gestappmedv2.Entities.Maintenance;
 import com.gl52.gestappmedv2.Repository.PeriodeDeMaintenanceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,15 +15,15 @@ public class PeriodeDeMaintenanceService {
     @Autowired
     PeriodeDeMaintenanceRepository periodeDeMaintenanceRepository;
 
-    public List<PeriodeDeMaintenance> getAllPeriodeDeMaintenace() {
+    public List<Maintenance> getAllPeriodeDeMaintenace() {
         return periodeDeMaintenanceRepository.findAll();
     }
 
-    public PeriodeDeMaintenance getPeriodeDeMaintenaceById(Long id) {
+    public Maintenance getPeriodeDeMaintenaceById(Long id) {
         return periodeDeMaintenanceRepository.findById(id).get();
     }
 
-    public Long savePeriodeDeMaintance(PeriodeDeMaintenance periodeDeMaintenance) {
+    public Long savePeriodeDeMaintance(Maintenance periodeDeMaintenance) {
         return periodeDeMaintenanceRepository.save(periodeDeMaintenance).getId();
     }
 
