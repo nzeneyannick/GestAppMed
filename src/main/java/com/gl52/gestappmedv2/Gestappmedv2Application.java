@@ -28,10 +28,10 @@ public class Gestappmedv2Application implements CommandLineRunner {
 
     @Override
     public void run(String ... args) throws Exception{
-        Type type1 = new Type(1L,"type1",null);
-        Type type2 = new Type(2L,"type2",null);
-        Type type3 = new Type(3L,"type3",null);
-        Type type4 = new Type(4L,"type4",null);
+        Type type1 = new Type(1L,"type1",null, null);
+        Type type2 = new Type(2L,"type2",null, null);
+        Type type3 = new Type(3L,"type3",null,null);
+        Type type4 = new Type(4L,"type4",null,null);
 
         typeService.saveOrUpdate(type1);
         typeService.saveOrUpdate(type2);
