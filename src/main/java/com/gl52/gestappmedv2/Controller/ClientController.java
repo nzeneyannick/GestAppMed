@@ -4,6 +4,7 @@ import com.gl52.gestappmedv2.Entities.Client;
 import com.gl52.gestappmedv2.Service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.hateoas.config.EnableHypermediaSupport;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 

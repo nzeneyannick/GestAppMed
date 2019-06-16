@@ -3,6 +3,7 @@ package com.gl52.gestappmedv2.Controller;
 import com.gl52.gestappmedv2.Entities.Pret;
 import com.gl52.gestappmedv2.Service.PretService;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.hateoas.config.EnableHypermediaSupport;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

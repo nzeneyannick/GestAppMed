@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-public interface PeriodeDeMaintenanceRepository extends CrudRepository<Maintenance, Long> {
+public interface MaintenanceRepository extends CrudRepository<Maintenance, Long> {
     public List<Maintenance> findAll();
     public Optional<Maintenance> findById(Long id);
     public void deleteById(Long id);
