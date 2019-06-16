@@ -29,7 +29,7 @@ public class PretController {
         return pretService.getPret(id);
     }
     @DeleteMapping("/removeLoan/{id}")
-    public void deleteLoan(Long id){
+    public void deleteLoan(@PathVariable Long id){
         pretService.deletePret(id);
     }
 
