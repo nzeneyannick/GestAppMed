@@ -32,7 +32,7 @@ public class MaintenanceController {
     }
 
     @DeleteMapping("/removemaintance/{id}")
-    public void deletePeriodeMaintenance(Long id){
+    public void deletePeriodeMaintenance(@PathVariable Long id){
         maintenanceService.deletePeriodeDeMaintenance(id);
     }
 
