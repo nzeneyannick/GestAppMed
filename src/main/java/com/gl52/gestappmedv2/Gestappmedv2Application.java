@@ -27,11 +27,11 @@ public class Gestappmedv2Application implements CommandLineRunner {
     }
 
     @Override
-    public void run(String ... args) throws Exception{
-        Type type1 = new Type(1L,"type1","P4D", null);
-        Type type2 = new Type(2L,"type2","P4D", null);
-        Type type3 = new Type(3L,"type3","P4D",null);
-        Type type4 = new Type(4L,"type4","P4D",null);
+    public void run(String... args) throws Exception {
+        Type type1 = new Type(1L, "type1", "P4D", null);
+        Type type2 = new Type(2L, "type2", "P4D", null);
+        Type type3 = new Type(3L, "type3", "P4D", null);
+        Type type4 = new Type(4L, "type4", "P4D", null);
 
         typeService.saveOrUpdate(type1);
         typeService.saveOrUpdate(type2);
@@ -41,24 +41,19 @@ public class Gestappmedv2Application implements CommandLineRunner {
         Random rnd = new Random();
 
 
-        typeService.getAllType().forEach(c->{
-            Equipement equipement =new Equipement();
-            equipement.setName(RandomString.make(10));
-            equipement.setLastKnowsLocation(RandomString.make(10));
-            equipement.setEnMaintenance(rnd.nextBoolean());
-            equipement.setEnPret(rnd.nextBoolean());
-            equipement.setType(c);
+        typeService.getAllType().forEach(c -> {
+            for (int i = 0; i < 10; i++) {
+                Equipement equipement = new Equipement();
+                equipement.setName(RandomString.make(10));
+                equipement.setLastKnowsLocation(RandomString.make(10));
+                equipement.setEnMaintenance(rnd.nextBoolean());
+                equipement.setEnPret(rnd.nextBoolean());
+                equipement.setType(c);
 
-            equipementService.saveOrUpdate(equipement);
+                equipementService.saveOrUpdate(equipement);
+            }
 
         });
-
-
-
-
-
-
-
 
 
     }

@@ -3,6 +3,8 @@ package com.gl52.gestappmedv2.Entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -25,6 +27,7 @@ public class Equipement implements Serializable {
 
     //Cardinalité Equipement-Type
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Type type;
 
     //cardinalité Equipement-Pret

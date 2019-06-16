@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -26,9 +28,11 @@ public class Pret implements Serializable {
     private String etatFin;
 
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Equipement equipement;
     @ManyToOne
-    private Pret pret;
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Client client;
 
 
 }

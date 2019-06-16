@@ -22,7 +22,7 @@ public class Client implements Serializable {
     private String adresse;
 
     //Cardinalité Client-Pret
-    @OneToMany(mappedBy = "pret")
+    @OneToMany(mappedBy = "client")
     Collection<Pret> prets;
 
 
