@@ -1,5 +1,5 @@
 UV GL52
-Projet : Localisation du matériel biomédical au sein d'un hopital
+Projet : Localisation du matériel biomédical au sein d'un hôpital
 
 #GestAppMed  (Backend)
 
